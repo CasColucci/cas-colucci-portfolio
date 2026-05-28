@@ -17,7 +17,7 @@
         <h1 class="geom-regular"><span class="red">C</span>as <span class="red">C</span>olucci</h1>
         <hr>
         <h2 class="cardo-italic">Full Stack Web Developer</h2>
-        <svg width="12" height="55" viewBox="0 0 12 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg id="arrows" width="12" height="55" viewBox="0 0 12 55" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="toparrow" d="M5.7735 55L11.547 45H-4.29153e-06L5.7735 55Z" fill="{red}"/>
             <path id="midarrow" d="M5.7735 32L11.547 22H-4.29153e-06L5.7735 32Z" fill="{red}"/>
             <path id="bottomarrow" d="M5.7735 10L11.547 0H-4.29153e-06L5.7735 10Z" fill="{red}"/>
@@ -30,8 +30,6 @@
 </div>
 
 <style>
-    @import '../styles.css';
-
     @font-face {
         font-family: 'cardoitalic';
         src: url('../fonts/cardo-italic-webfont.woff2') format('woff2'),
@@ -86,7 +84,7 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 20px;
+        padding: 0 10vw;
     }
 
     nav {
@@ -160,5 +158,42 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    svg {
+        margin-top: 30vh;
+    }
+
+    #toparrow {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 1s forwards, translateY 1s ease-in-out 1s forwards;
+    }
+
+    #midarrow {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 1.5s forwards, translateY 1s ease-in-out 1.5s forwards;
+    }
+
+    #bottomarrow {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out 2s forwards, translateY 1s ease-in-out 2s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes translateY {
+        from {
+            transform: translateY(20px);
+        }
+        to {
+            transform: translateY(0);
+        }
     }
 </style>
