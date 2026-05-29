@@ -27,6 +27,18 @@
     <section class="skills" id="skills">
         <h1 class="geom-regular"><span class="red">01</span> Skills</h1>
     </section>
+    <section class="projects" id="projects">
+        <h1 class="geom-regular"><span class="red">02</span> Projects</h1>
+    </section>
+    <section class="experience" id="experience">
+        <h1 class="geom-regular"><span class="red">03</span> Experience</h1>
+    </section>
+    <section class="education" id="education">
+        <h1 class="geom-regular"><span class="red">04</span> Education</h1>
+    </section>
+    <section class="contact" id="contact">
+        <h1 class="geom-regular"><span class="red">05</span> Contact</h1>
+    </section>
 </div>
 
 <style>
@@ -87,21 +99,23 @@
         padding: 0 10vw;
     }
 
+    /* Navigation that is sticky to right */
     nav {
         display: flex;
+        position: fixed;
         gap: 20px;
         flex-direction: column;
         a {
             color: var(--clr-white);
             text-decoration: none;
             font-family: 'cardo-italic', serif;
-            font-size: 16px;
+            font-size: 20px;
             align-self: flex-end;
             transition: color 0.3s ease, font-size 0.3s ease, font-family 0.3s ease;
 
             .active {
                 color: var(--clr-red);
-                font-size: 20px;
+                font-size: 24px;
                 font-family: 'cardo-regular', serif;
             }
         }
@@ -122,7 +136,7 @@
         }
     } 
 
-    .index {
+    .home {
         h1 {
             color: var(--clr-white);
             text-align: center;
@@ -141,11 +155,12 @@
             margin: 0 auto;
         }
 
-        .red {
-            color: var(--clr-red);
-        }
     }
 
+    .red {
+        color: var(--clr-red);
+    }
+    
     .home {
         height: 100vh;
         display: flex;
@@ -161,7 +176,8 @@
     }
 
     svg {
-        margin-top: 30vh;
+        position: absolute;
+        margin-top: 50vh;
     }
 
     #toparrow {
