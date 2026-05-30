@@ -1,11 +1,54 @@
-<script>
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import Skills from '$lib/components/Skills.svelte';
+
+    import svelteIcon from '$lib/assets/svelte-16.svg?raw';
+    import angularIcon from '$lib/assets/angular-16.svg?raw';
+    
     const red = 'var(--clr-red)';
+
+    onMount(() => {
+        const sections = document.querySelectorAll('section');
+        const navA = document.querySelectorAll('.navstack a');
+
+        function updateActiveNav() {
+            let maxVisibleArea = 0;
+            let activeSection : string | null = null;
+
+            sections.forEach((section) => {
+                const visibleArea = getVisibleArea(section);
+                if(visibleArea > maxVisibleArea) {
+                    maxVisibleArea = visibleArea;
+                    activeSection = section.getAttribute("id");
+                }
+            });
+
+            navA.forEach((a) => {
+                a.classList.remove("active");
+                if (activeSection && a.getAttribute("href") === `#${activeSection}`) {
+                    a.classList.add("active");
+                }
+            });
+        }
+
+        function getVisibleArea(element: Element): number {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+            const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+            const visibleWidth = Math.min(rect.right, windowWidth) - Math.max(rect.left, 0);
+            return visibleHeight * visibleWidth;
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('resize', updateActiveNav);
+    });
 </script>
 
 <div class="index">
     <div class="navstack | vertical-center">
         <nav class="">
-            <a href="#home">Home</a>
+            <a href="#home" class="active">Home</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
@@ -26,6 +69,12 @@
     </section> 
     <section class="skills" id="skills">
         <h1 class="geom-regular"><span class="red">01</span> Skills</h1>
+        <hr>
+        <div class="skills-container">
+
+            <Skills skill="Svelte" iconsrc={svelteIcon} />
+            <Skills skill="Angular" iconsrc={angularIcon} />
+        </div>
     </section>
     <section class="projects" id="projects">
         <h1 class="geom-regular"><span class="red">02</span> Projects</h1>
@@ -120,12 +169,19 @@
             align-self: flex-end;
             transition: color 0.3s ease, font-size 0.3s ease, font-family 0.3s ease;
             line-height: 2.5rem;
-
-            .active {
-                color: var(--clr-red);
-                font-size: 24px;
-                font-family: 'cardo-regular', serif;
-            }
+        }
+        .active {
+            color: var(--clr-red);
+            font-size: 23px;
+            font-family: 'cardo-regular', serif;
+        }
+        .active::after {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--clr-red);
+            margin-left: 5px;
         }
 
         a::after {
@@ -191,7 +247,7 @@
         transform: translate(-50%, -50%);
     }
 
-    svg {
+    #arrows {
         position: absolute;
         margin-top: 50vh;
     }
