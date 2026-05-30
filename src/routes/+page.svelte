@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import Skills from '$lib/components/Skills.svelte';
+    import SectionHead from '$lib/components/SectionHead.svelte';
 
     import svelteIcon from '$lib/assets/svelte-16.svg?raw';
     import angularIcon from '$lib/assets/angular-16.svg?raw';
@@ -74,10 +75,9 @@
 
     </section> 
     <section class="skills" id="skills">
-        <h1 class="geom-regular"><span class="red">01</span> Skills</h1>
+        <SectionHead number="01" title="Skills" />
         <hr>
         <div class="skills-container">
-
             <Skills skill="Svelte" iconsrc={svelteIcon} />
             <Skills skill="Angular" iconsrc={angularIcon} />
             <Skills skill="Blazor" iconsrc={blazorIcon} />
@@ -88,17 +88,21 @@
             <Skills skill="TypeScript" iconsrc={typescriptIcon} />
         </div>
     </section>
-    <section class="projects" id="projects">
-        <h1 class="geom-regular"><span class="red">02</span> Projects</h1>
+    <section class="projects | white-bg" id="projects">
+        <SectionHead number="02" title="Projects" inverted={true} />
+        <hr>
     </section>
     <section class="experience" id="experience">
-        <h1 class="geom-regular"><span class="red">03</span> Experience</h1>
+        <SectionHead number="03" title="Experience" />
+        <hr>
     </section>
     <section class="education" id="education">
-        <h1 class="geom-regular"><span class="red">04</span> Education</h1>
+        <SectionHead number="04" title="Education" />
+        <hr>
     </section>
     <section class="contact" id="contact">
-        <h1 class="geom-regular"><span class="red">05</span> Contact</h1>
+        <SectionHead number="05" title="Contact" />
+        <hr>
     </section>
     <footer>
         <hr>
@@ -162,7 +166,11 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 10vw;
+        padding: 0 5vw;
+        a {
+            color: var(--clr-yellow);
+            text-shadow: 1px 1px 0 var(--clr-dark-blue);
+        }
     }
 
     nav {
@@ -201,7 +209,7 @@
             display: inline-block;
             width: 20px;
             height: 2px;
-            background-color: var(--clr-white);
+            background-color: var(--clr-yellow);
             margin-left: 5px;
             transition: width 0.3s ease;
         }
@@ -302,5 +310,10 @@
         flex-wrap: wrap;
         gap: 2rem;
         justify-content: center;
+        margin: 0 auto 10vh;
+    }
+
+    .white-bg {
+        background-color: var(--clr-white);
     }
 </style>
