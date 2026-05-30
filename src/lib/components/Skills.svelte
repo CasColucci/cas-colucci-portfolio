@@ -41,8 +41,8 @@
     }
 
     .skill-icon {
-        width: 40px;
-        height: 40px;
+        width: 114px;
+        height: 114px;
         color: var(--clr-red);
     }
 

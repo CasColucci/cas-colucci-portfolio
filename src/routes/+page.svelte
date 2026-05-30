@@ -4,6 +4,12 @@
 
     import svelteIcon from '$lib/assets/svelte-16.svg?raw';
     import angularIcon from '$lib/assets/angular-16.svg?raw';
+    import blazorIcon from '$lib/assets/blazor.svg?raw';
+    import reactIcon from '$lib/assets/react-16.svg?raw';
+    import mssqlIcon from '$lib/assets/database.svg?raw';
+    import postgresIcon from '$lib/assets/postgresql.svg?raw';
+    import dotnetIcon from '$lib/assets/dotnet.svg?raw';
+    import typescriptIcon from '$lib/assets/typescript-16.svg?raw';
     
     const red = 'var(--clr-red)';
 
@@ -74,6 +80,12 @@
 
             <Skills skill="Svelte" iconsrc={svelteIcon} />
             <Skills skill="Angular" iconsrc={angularIcon} />
+            <Skills skill="Blazor" iconsrc={blazorIcon} />
+            <Skills skill="React" iconsrc={reactIcon} />
+            <Skills skill="MSSQL" iconsrc={mssqlIcon} />
+            <Skills skill="PostgreSQL" iconsrc={postgresIcon} />
+            <Skills skill="C#/.NET" iconsrc={dotnetIcon} />
+            <Skills skill="TypeScript" iconsrc={typescriptIcon} />
         </div>
     </section>
     <section class="projects" id="projects">
@@ -283,5 +295,12 @@
         to {
             transform: translateY(0);
         }
+    }
+
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
     }
 </style>
