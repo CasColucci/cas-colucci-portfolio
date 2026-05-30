@@ -39,6 +39,10 @@
     <section class="contact" id="contact">
         <h1 class="geom-regular"><span class="red">05</span> Contact</h1>
     </section>
+    <footer>
+        <hr>
+        <p class="cardo-italic">Designed and built by Cas Colucci</p>
+    </footer>
 </div>
 
 <style>
@@ -87,8 +91,9 @@
         font-style: italic;
     }
 
+    /* Navigation that is sticky to right */
     .navstack {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -99,30 +104,28 @@
         padding: 0 10vw;
     }
 
-    /* Navigation that is sticky to right */
     nav {
         display: flex;
+        align-items: center;
         position: fixed;
         gap: 20px;
         flex-direction: column;
         a {
+            display: flex;
+            align-items: center;
             color: var(--clr-white);
             text-decoration: none;
             font-family: 'cardo-italic', serif;
             font-size: 20px;
             align-self: flex-end;
             transition: color 0.3s ease, font-size 0.3s ease, font-family 0.3s ease;
+            line-height: 2.5rem;
 
             .active {
                 color: var(--clr-red);
                 font-size: 24px;
                 font-family: 'cardo-regular', serif;
             }
-        }
-
-        a:hover {
-            color: var(--clr-red);
-            font-size: 18px;
         }
 
         a::after {
@@ -134,9 +137,26 @@
             margin-left: 5px;
             transition: width 0.3s ease;
         }
+        
+        a:hover {
+            color: var(--clr-red);
+            font-size: 24px;
+            font-family: 'cardo-regular', serif;
+        }
+
+        a:hover::after {
+            background-color: var(--clr-red);  
+            width: 50px;
+        }
+
     } 
 
     .home {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         h1 {
             color: var(--clr-white);
             text-align: center;
@@ -151,8 +171,6 @@
 
         hr {
             width: 420px;
-            border: 1px solid var(--clr-red);
-            margin: 0 auto;
         }
 
     }
@@ -160,13 +178,11 @@
     .red {
         color: var(--clr-red);
     }
-    
-    .home {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
+    hr {
+        border: 1px solid var(--clr-red);
+        margin: 20px auto;
+        width: 90vw;
     }
 
     .vertical-center {
