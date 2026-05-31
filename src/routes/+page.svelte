@@ -308,7 +308,7 @@
     .skills-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 50px;
         justify-content: center;
         margin: 0 auto 10vh;
     }
