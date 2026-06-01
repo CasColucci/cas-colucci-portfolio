@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import Skills from '$lib/components/Skills.svelte';
     import SectionHead from '$lib/components/SectionHead.svelte';
+    import Projects from '$lib/components/Projects.svelte';
 
     import svelteIcon from '$lib/assets/svelte-16.svg?raw';
     import angularIcon from '$lib/assets/angular-16.svg?raw';
@@ -11,6 +12,8 @@
     import postgresIcon from '$lib/assets/postgresql.svg?raw';
     import dotnetIcon from '$lib/assets/dotnet.svg?raw';
     import typescriptIcon from '$lib/assets/typescript-16.svg?raw';
+
+    import project1Img from '$lib/assets/img/bracketgame.png';
     
     const red = 'var(--clr-red)';
 
@@ -88,14 +91,78 @@
             <Skills skill="TypeScript" iconsrc={typescriptIcon} />
         </div>
     </section>
-    <section class="projects | white-bg" id="projects">
-        <SectionHead number="02" title="Projects" inverted={true} />
-        <hr>
-    </section>
-    <section class="experience" id="experience">
-        <SectionHead number="03" title="Experience" />
-        <hr>
-    </section>
+    <div class="white-bg">
+        <section class="projects" id="projects">
+            <SectionHead number="02" title="Projects" inverted={true} />
+            <hr>
+            <div class="projects-container">
+                <Projects title="Golly's Bracket Game" 
+                description="A .NET and React project, utilizing PostgreSQL and Entity Framework Core for the 
+                database functions, and SignalR for real-time communication." 
+                link="/project1" projectImg={project1Img} />
+            </div>
+        </section>
+        <section class="experience" id="experience">
+            <div class="panel" aria-hidden="true"></div>
+            <div class="content">
+                <div class="head">
+                    <SectionHead number="03" title="Experience" />
+                </div>
+                <hr class="rule">
+                <div class="jobs">
+                    <div class="job">
+                        <h3 class="role">Software Engineer</h3>
+                        <div class="job-info">
+                            <span class="dates">11/24 <span class="red">-</span> 05/26</span>
+                            <div class="company-info">
+                                <span class="company">System Innovators</span>
+                                <span class="where">Jacksonville, FL</span>
+                            </div>
+                        </div>
+                        <ul class="tech">
+                            <li>C#</li>
+                            <li>.NET Framework</li>
+                            <li>Blazor</li>
+                            <li>Docker</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="detail">
+                        <ul class="points">
+                            <li>Maintained and enhanced the AMP (Admin Management Portal) within the iNovah enterprise revenue management system, supporting cashiering and payments operations for government and commercial clients across the United States and Canada</li>
+                            <li>Diagnosed and resolved long-standing production bugs in a legacy .NET Framework 4.8 codebase spanning 130+ interconnected projects</li>
+                            <li>Improved team documentation and authored transition materials supporting the team's migration from TFVC to Git version control</li>
+                        </ul>
+                    </div>
+                    <div class="job">
+                        <h3 class="role">Software Engineer</h3>
+                        <div class="job-info">
+                            <span class="dates">11/21 <span class="red">-</span> 09/24</span>
+                            <div class="company-info">
+                                <span class="company">BAM Technologies</span>
+                                <span class="where">Arlington, VA</span>
+                            </div>
+                        </div>
+                        <ul class="tech">
+                            <li>C#</li>
+                            <li>.NET 8</li>
+                            <li>Angular</li>
+                            <li>Entity Framework</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="detail">
+                        <ul class="points">
+                            <li>Built and maintained full-stack features for the MyCAA Scholarship platform, a nationally-deployed government application serving military spouses nationwide, using .NET Core 8 and Angular</li>
+                            <li>Designed and optimized SQL Server database queries and schema to support platform performance and reliability</li>
+                            <li>Managed CI/CD deployments via Octopus Deploy and TeamCity, maintaining stable production releases across environments</li>
+                            <li>Collaborated in a cross-functional Scrum team, conducting code reviews and implementing comprehensive testing practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <section class="education" id="education">
         <SectionHead number="04" title="Education" />
         <hr>
@@ -227,6 +294,11 @@
 
     } 
 
+    section {
+        width: 90%;
+        margin: 0 auto 10vh;
+    }
+
     .home {
         height: 100vh;
         display: flex;
@@ -315,5 +387,151 @@
 
     .white-bg {
         background-color: var(--clr-white);
+    }
+
+    .projects-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 0 auto 10vh;
+        padding: 0 5vw;
+    }
+
+    .experience {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        color: var(--clr-dark-blue);
+        container-type: inline-size;
+    }
+
+    .panel {
+        position: absolute;
+        inset: 0 auto 10% 0;
+        width: 38%;
+        background-color: var(--clr-dark-blue);
+        z-index: 1;
+    }
+
+    .content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        padding-bottom: 10vh;
+    }
+
+    .head {
+        max-width: 36%;
+        margin-left: 1%;
+        white-space: nowrap;
+    }
+
+    .rule {
+        width: 100%;
+        border: 0;       
+        height: 2px;        
+        background-color: var(--clr-red);
+    }
+    
+
+
+    .jobs {
+        flex: 1;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: start;
+        align-content: start;
+        row-gap: 3.6cqw;
+        padding-top: 3cqw;
+    }
+
+    .job {
+        padding: 1.8cqw 0;
+
+    }
+
+    .role {
+        padding: 0 1.8cqw 0 3.2cqw;
+        margin: 0;
+        font-size: 32px;
+        color: var(--clr-white);
+        font-family: 'geomregular', sans-serif;
+    }
+
+    .job-info {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 3.2cqw;
+        color: var(--clr-white);
+        font-family: 'cardo-italic', serif;
+        font-style: italic;
+        font-size: 20px;
+        width: 36vw;
+    }
+
+    .company-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .where {
+        color: var(--clr-red);
+    }
+
+    .tech {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-style: italic;
+    }
+
+    .tech li {
+        position: relative;
+        padding-left: 20px;
+        margin-left: 3.5cqw;
+        color: var(--clr-white);
+        font-family: 'cardo-italic', serif;
+        font-size: 20px;
+    }
+
+    .tech li::before {
+        content: '>';
+        position: absolute;
+        left: 0;
+        color: var(--clr-red);
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'geomregular', sans-serif;
+    }
+
+    .detail {
+        padding: 0 3.2cqw;
+    }
+
+    .points {
+        margin: 0;
+        padding: 1.8cqw 0;
+        list-style: none;
+    }
+
+    .points li {
+        position: relative;
+        padding-top: 1.8cqw;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+    .points li::before {
+        content: '>';
+        position: absolute;
+        left: 0;
+        color: var(--clr-red);
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'geomregular', sans-serif;
     }
 </style>

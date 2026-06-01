@@ -29,7 +29,7 @@
         flex-direction: column;
         align-items: center;
         font-family: 'geomregular', sans-serif;
-        width: 90vw;
+        width: 100%;
         margin: 0 auto;
     }
     
