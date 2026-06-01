@@ -163,6 +163,11 @@
             </div>
         </section>
     </div>
+    <div class="triangle-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
+        </svg>
+    </div>
     <section class="education" id="education">
         <SectionHead number="04" title="Education" />
         <hr>
@@ -178,6 +183,9 @@
 </div>
 
 <style>
+    :root {
+        --experienceSectionLeftPanelWidth: 30%;
+    }
     @font-face {
         font-family: 'cardoitalic';
         src: url('../fonts/cardo-italic-webfont.woff2') format('woff2'),
@@ -295,7 +303,7 @@
     } 
 
     section {
-        width: 90%;
+        width: 90vw;
         margin: 0 auto 10vh;
     }
 
@@ -330,7 +338,7 @@
     hr {
         border: 1px solid var(--clr-red);
         margin: 20px auto;
-        width: 90vw;
+        width: 100%;
     }
 
     .vertical-center {
@@ -399,7 +407,6 @@
 
     .experience {
         position: relative;
-        width: 90%;
         margin: 0 auto;
         color: var(--clr-dark-blue);
         container-type: inline-size;
@@ -408,7 +415,7 @@
     .panel {
         position: absolute;
         inset: 0 auto 10% 0;
-        width: 38%;
+        width: var(--experienceSectionLeftPanelWidth);
         background-color: var(--clr-dark-blue);
         z-index: 1;
     }
@@ -423,9 +430,9 @@
     }
 
     .head {
-        max-width: 36%;
+        max-width: var(--experienceSectionLeftPanelWidth);
         margin-left: 1%;
-        white-space: nowrap;
+        width: 22vw;
     }
 
     .rule {
@@ -435,8 +442,6 @@
         background-color: var(--clr-red);
     }
     
-
-
     .jobs {
         flex: 1;
         display: grid;
@@ -449,7 +454,6 @@
 
     .job {
         padding: 1.8cqw 0;
-
     }
 
     .role {
@@ -470,7 +474,7 @@
         font-family: 'cardo-italic', serif;
         font-style: italic;
         font-size: 20px;
-        width: 36vw;
+        width: 22vw;
     }
 
     .company-info {
@@ -533,5 +537,17 @@
         font-weight: bold;
         font-size: 20px;
         font-family: 'geomregular', sans-serif;
+    }
+
+
+    .shape-fill {
+        fill: var(--clr-white);
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 1600px) {
+        section {
+            width:70vw;
+        }
     }
 </style>
