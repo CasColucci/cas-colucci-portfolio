@@ -17,6 +17,16 @@
     
     const red = 'var(--clr-red)';
 
+    let navOpen = $state(false);
+
+    function toggleNav() {
+        navOpen = !navOpen;
+    }
+
+    function closeNav() {
+        navOpen = false;
+    }
+
     onMount(() => {
         const sections = document.querySelectorAll('section');
         const navA = document.querySelectorAll('.navstack a');
@@ -65,13 +75,18 @@
 
 <div class="index">
     <div class="navstack | vertical-center">
-        <nav class="">
-            <a href="#home" class="active">Home</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
+        <button class="nav-toggle" onclick={toggleNav} aria-label="Toggle navigation">
+            <svg class="nav-arrow" class:open={navOpen} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="var(--clr-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <nav class:open={navOpen}>
+            <a href="#home" class="active" onclick={closeNav}>Home</a>
+            <a href="#skills" onclick={closeNav}>Skills</a>
+            <a href="#projects" onclick={closeNav}>Projects</a>
+            <a href="#experience" onclick={closeNav}>Experience</a>
+            <a href="#education" onclick={closeNav}>Education</a>
+            <a href="#contact" onclick={closeNav}>Contact</a>
         </nav>
     </div>
     <section class="home" id="home">
@@ -317,32 +332,46 @@
         display: flex;
         align-items: center;
         position: fixed;
-        gap: 20px;
+        gap: 0;
         flex-direction: column;
         z-index: 10;
+
         a {
             display: flex;
             align-items: center;
             color: var(--clr-white);
             text-decoration: none;
-            font-family: 'cardo-italic', serif;
+            font-family: 'cardoitalic', serif;
             font-size: 20px;
             align-self: flex-end;
-            transition: color 0.3s ease, font-size 0.3s ease, font-family 0.3s ease;
+            transition: color 0.3s ease, font-size 0.3s ease;
             line-height: 2.5rem;
+            position: relative;
         }
+
+        a::before {
+            content: '';
+            color: var(--clr-red);
+            font-family: 'geomregular', sans-serif;
+            font-weight: bold;
+            margin-right: 0;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease, margin-right 0.3s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .active::before {
+            content: '>';
+            width: 1ch;
+            margin-right: 8px;
+        }
+
         .active {
             color: var(--clr-red);
             font-size: 23px;
-            font-family: 'cardo-regular', serif;
-        }
-        .active::after {
-            content: '';
-            display: inline-block;
-            width: 50px;
-            height: 2px;
-            background-color: var(--clr-red);
-            margin-left: 5px;
+            font-family: 'cardoregular', serif;
         }
 
         a::after {
@@ -351,22 +380,26 @@
             width: 20px;
             height: 2px;
             background-color: var(--clr-yellow);
-            margin-left: 5px;
-            transition: width 0.3s ease;
+            margin-left: 8px;
+            transition: width 0.3s ease, background-color 0.3s ease;
         }
-        
+
+        .active::after {
+            width: 50px;
+            background-color: var(--clr-red);
+        }
+
         a:hover {
             color: var(--clr-red);
             font-size: 24px;
-            font-family: 'cardo-regular', serif;
+            font-family: 'cardoregular', serif;
         }
 
         a:hover::after {
-            background-color: var(--clr-red);  
+            background-color: var(--clr-red);
             width: 50px;
         }
-
-    } 
+    }
 
     section {
         width: 90vw;
@@ -723,10 +756,73 @@
         cursor: pointer;
     }
 
+    .nav-toggle {
+        display: none;
+        background-color: var(--clr-dark-blue);
+        border: 1px solid var(--clr-red);
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 8px;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        right: 5vw;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 101;
+    }
+
+    .nav-arrow {
+        transition: transform 0.3s ease;
+        transform: rotate(0deg);
+    }
+
+    .nav-arrow.open {
+        transform: rotate(90deg);
+    }
+
     /* Responsive adjustments */
     @media (min-width: 1600px) {
         section {
             width:70vw;
+        }
+    }
+
+    @media (max-width: 1610px) {
+        .nav-toggle {
+            display: flex;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            background-color: var(--clr-dark-blue);
+            border-left: 3px solid var(--clr-red);
+            padding: 80px 50px 40px 40px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            align-items: flex-start;
+            gap: 0;
+        }
+
+        nav.open {
+            transform: translateX(0);
+        }
+
+        nav a {
+            width: 100%;
+            border-bottom: 1px solid color-mix(in srgb, var(--clr-red) 30%, transparent);
+            padding: 6px 0;
+            align-self: flex-start;
+            font-size: 23px !important;
+        }
+
+        nav a:first-child {
+            border-top: 1px solid color-mix(in srgb, var(--clr-red) 30%, transparent);
         }
     }
 
