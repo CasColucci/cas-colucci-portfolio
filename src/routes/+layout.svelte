@@ -11,5 +11,5 @@
 {@render children()}
 
 <style>
-	@import '../styles.css';
+	@import '../../src/styles.css';
 </style>

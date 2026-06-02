@@ -171,15 +171,67 @@
     <section class="education" id="education">
         <SectionHead number="04" title="Education" />
         <hr>
+        <div class="school">
+            <div class="school-details">
+                <h3 class="school-name">Stetson University</h3>
+                <h3 class="degree">Bachelor of Science | Computer Science</h3>
+            </div>
+            <p class="school-description">Computer Science Club <span class="red">-</span> Event Coordinator</p>
+            <p class="school-description">Senior Project <span class="red">-</span> Bot Activity Analysis: Analyzed bot prevalence and engagement on social media by making a web scraper and data analysis program. It would gather posts from suspected bot accounts, and compare interactions to those by non-bot accounts, looking for trends.</p>
+        </div>
+        <div class="school">
+            <div class="school-details">
+                <h3 class="school-name">Daytona State College</h3>
+                <h3 class="degree">Associate of Arts | Quanta-Honors College</h3>
+            </div>
+            <p class="school-description">Quanta-Honors <span class="red">-</span> Led varied, research-intensive projects from concept through execution, becoming skilled with seeing projects through from conception to completion.</p>
     </section>
     <section class="contact" id="contact">
         <SectionHead number="05" title="Contact" />
         <hr>
+        <div class="contact">
+            <form class="contact-form" method="POST" netlify>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+
+                <button type="submit">Send</button>
+
+            </form>
+        </div>
     </section>
-    <footer>
+    <section class="footer">
         <hr>
-        <p class="cardo-italic">Designed and built by Cas Colucci</p>
-    </footer>
+        <div class="links">
+            <a href="https://github.com/cascolucci" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
+                <svg fill={red} width="100px" height="100px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g data-name="Layer 2">
+                        <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/>
+                        <path d="M12 1A10.89 10.89 0 0 0 1 11.77 10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11 2.37 2.37 0 0 0 3.2.89 2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91 3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.68 10.68 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77 10.89 10.89 0 0 0 12 1" data-name="github"/>
+                    </g>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/cassia-colucci/" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
+                <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z" fill={red}/>
+                    <path d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z" fill={red}/>
+                    <path d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z" fill={red}/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z" fill={red}/>
+                </svg>
+            </a>
+        </div>
+        <footer>
+            <p>Designed and built by <span class="red">C</span>as <span class="red">C</span>olucci <span class="red">© 2026</span></p>
+        </footer>
+    </section>
 </div>
 
 <style>
@@ -538,10 +590,119 @@
         font-size: 20px;
         font-family: 'geomregular', sans-serif;
     }
-
-
+    
     .shape-fill {
         fill: var(--clr-white);
+    }
+
+    .school {
+        color: var(--clr-white);
+        padding: 50px;
+    }
+
+    .school-details { 
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .school-name {
+        position: relative;
+        font-family: 'geomregular', sans-serif;
+        font-size: 32px;
+        padding-left: 25px;
+    }
+
+    .school-name::before {
+        content: '>';
+        position: absolute;
+        left: 0;
+        color: var(--clr-red);
+        font-family: 'geomregular', sans-serif;
+    }
+
+    .degree {
+        color: var(--clr-dark-blue);
+        background-color: var(--clr-yellow);
+        font-size: 32px;
+        font-family: 'geomregular', sans-serif;
+        font-weight: 400;
+        width: 60%;
+        text-align-last: right;
+    }
+
+    .school-description {
+        font-size: 20px;
+        font-family: 'cardo-regular', serif;
+        margin-top: 20px;
+        margin-left: 25px;
+
+    }
+
+    .school-description::before {
+        content: '>';
+        color: var(--clr-red);
+        font-family: 'geomregular', sans-serif;
+        margin-right: 10px;
+    }
+
+    .contact-form {
+        color: var(--clr-white);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-family: 'geomregular', sans-serif;
+    }
+
+    input {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: var(--clr-white);
+        color: var(--clr-dark-blue);
+        font-family: 'cardo-regular', serif; 
+        
+    }
+
+    textarea {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: var(--clr-white);
+        color: var(--clr-dark-blue);
+        resize: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: var(--clr-red);
+        color: var(--clr-white);
+        border: none;
+        cursor: pointer;
+        font-family: 'geomregular', sans-serif;
+        display: block;
+        width: 50%;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        color: var(--clr-white);
+        font-family: 'geomregular', sans-serif;
+        font-size: 24px;
+    }
+    
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
     }
 
     /* Responsive adjustments */
