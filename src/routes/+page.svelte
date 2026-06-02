@@ -22,13 +22,17 @@
         const navA = document.querySelectorAll('.navstack a');
 
         function updateActiveNav() {
-            let maxVisibleArea = 0;
+            const viewportMid = (window.innerHeight || document.documentElement.clientHeight) / 4;
+            let closestDist = Infinity;
             let activeSection : string | null = null;
 
             sections.forEach((section) => {
-                const visibleArea = getVisibleArea(section);
-                if(visibleArea > maxVisibleArea) {
-                    maxVisibleArea = visibleArea;
+                const rect = section.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > (window.innerHeight || document.documentElement.clientHeight)) return;
+                const sectionMid = (rect.top + rect.bottom) / 2;
+                const dist = Math.abs(sectionMid - viewportMid);
+                if (dist < closestDist) {
+                    closestDist = dist;
                     activeSection = section.getAttribute("id");
                 }
             });
@@ -41,17 +45,21 @@
             });
         }
 
-        function getVisibleArea(element: Element): number {
-            const rect = element.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-            const windowWidth = window.innerWidth || document.documentElement.clientWidth;
-            const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-            const visibleWidth = Math.min(rect.right, windowWidth) - Math.max(rect.left, 0);
-            return visibleHeight * visibleWidth;
+        /* Remove "inverted" flag from Experience section when under 1300px */
+        function updateInvertedFlag() {
+            const experienceSection = document.getElementById('experience');
+            if (window.innerWidth < 1300) {
+                experienceSection?.classList.remove('inverted');
+            } else {
+                experienceSection?.classList.add('inverted');
+            }
         }
 
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('resize', updateActiveNav);
+        window.addEventListener('resize', updateInvertedFlag);
+        updateActiveNav();
+        updateInvertedFlag();
     });
 </script>
 
@@ -105,21 +113,23 @@
         <section class="experience" id="experience">
             <div class="panel" aria-hidden="true"></div>
             <div class="content">
-                <div class="head">
+                <div class="head experience-head">
                     <SectionHead number="03" title="Experience" />
                 </div>
                 <hr class="rule">
                 <div class="jobs">
                     <div class="job">
-                        <h3 class="role">Software Engineer</h3>
-                        <div class="job-info">
-                            <span class="dates">11/24 <span class="red">-</span> 05/26</span>
-                            <div class="company-info">
-                                <span class="company">System Innovators</span>
-                                <span class="where">Jacksonville, FL</span>
+                        <div class="job-left-section">
+                            <h3 class="role">Software Engineer</h3>
+                            <div class="job-info">
+                                <span class="dates">11/24 <span class="red">-</span> 05/26</span>
+                                <div class="company-info">
+                                    <span class="company">System Innovators</span>
+                                    <span class="where">Jacksonville, FL</span>
+                                </div>
                             </div>
                         </div>
-                        <ul class="tech">
+                        <ul class="tech job-right-section">
                             <li>C#</li>
                             <li>.NET Framework</li>
                             <li>Blazor</li>
@@ -135,15 +145,17 @@
                         </ul>
                     </div>
                     <div class="job">
-                        <h3 class="role">Software Engineer</h3>
-                        <div class="job-info">
-                            <span class="dates">11/21 <span class="red">-</span> 09/24</span>
-                            <div class="company-info">
-                                <span class="company">BAM Technologies</span>
-                                <span class="where">Arlington, VA</span>
+                        <div class="job-left-section">
+                            <h3 class="role">Software Engineer</h3>
+                            <div class="job-info">
+                                <span class="dates">11/21 <span class="red">-</span> 09/24</span>
+                                <div class="company-info">
+                                    <span class="company">BAM Technologies</span>
+                                    <span class="where">Arlington, VA</span>
+                                </div>
                             </div>
                         </div>
-                        <ul class="tech">
+                        <ul class="tech job-right-section">
                             <li>C#</li>
                             <li>.NET 8</li>
                             <li>Angular</li>
@@ -290,6 +302,7 @@
         left: 0;
         width: 100%;
         height: 60px;
+        z-index: 100;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -306,6 +319,7 @@
         position: fixed;
         gap: 20px;
         flex-direction: column;
+        z-index: 10;
         a {
             display: flex;
             align-items: center;
@@ -654,6 +668,7 @@
         display: block;
         margin-bottom: 5px;
         font-family: 'geomregular', sans-serif;
+        font-size: 20px;
     }
 
     input {
@@ -663,7 +678,6 @@
         background-color: var(--clr-white);
         color: var(--clr-dark-blue);
         font-family: 'cardo-regular', serif; 
-        
     }
 
     textarea {
@@ -705,10 +719,80 @@
         flex-direction: row;
     }
 
+    .links a {
+        cursor: pointer;
+    }
+
     /* Responsive adjustments */
     @media (min-width: 1600px) {
         section {
             width:70vw;
+        }
+    }
+
+    @media (max-width: 1300px) {
+        .role {
+            font-size: 28px;
+            text-wrap: wrap;
+            max-width: var(--experienceSectionLeftPanelWidth);
+        }
+
+        .school-details h3 {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 1122px) {
+        .school-details h3 {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 960px) {
+        .experience-head {
+            --section-head-color: var(--clr-dark-blue);
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .experience {
+            position: relative;
+        }
+
+        .job {
+            display: flex;
+            flex-direction: row;
+            background-color: var(--clr-dark-blue);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .tech {
+            margin-top: 50px;
+        }
+
+        .jobs .role {
+            max-width: 100%;
+       }
+       .head {
+            max-width: 100%;
+            width: 100%;
+       }
+
+        .jobs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea, button {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 838px) {
+        .school-details h3 {
+            text-align-last: left;
         }
     }
 </style>

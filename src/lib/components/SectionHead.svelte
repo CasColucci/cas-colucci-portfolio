@@ -3,7 +3,7 @@
 </script>
 
 <div class="section-head">
-    <h2 class="cardo-regular" style="color: {inverted ? 'var(--clr-dark-blue)' : 'var(--clr-white)'}">
+    <h2 class="cardo-regular" style="color: var(--section-head-color, {inverted ? 'var(--clr-dark-blue)' : 'var(--clr-white)'})">
         <span>{number}</span> {title}
     </h2>
 </div>
@@ -41,4 +41,10 @@
     span {
         color: var(--clr-red);
     }
+    @media (max-width: 1300px) {
+        h2 {
+            font-size: 48px;
+        }
+    }
+
 </style>
