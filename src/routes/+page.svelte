@@ -420,7 +420,7 @@
         }
 
         hr {
-            width: 420px;
+            width: 32%;
         }
 
     }
@@ -442,8 +442,7 @@
     }
 
     #arrows {
-        position: absolute;
-        margin-top: 50vh;
+        margin-top: 40px;
     }
 
     #toparrow {
