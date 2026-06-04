@@ -115,7 +115,7 @@
                     modalDescription=""
                     techStack={['.NET', 'React', 'PostgreSQL', 'Entity Framework Core', 'SignalR']}
                     liveLink=""
-                    repoLink=""
+                    repoLink="https://github.com/CasColucci/BracketGame"
                 />
             </div>
         </section>
@@ -717,7 +717,7 @@
         resize: none;
     }
 
-    button {
+    .contact-form button {
         padding: 10px 20px;
         background-color: var(--clr-red);
         color: var(--clr-white);
@@ -876,7 +876,7 @@
             flex-direction: column;
         }
 
-        input, textarea, button {
+        input, textarea, .contact-form button {
             width: 100%;
         }
     }
