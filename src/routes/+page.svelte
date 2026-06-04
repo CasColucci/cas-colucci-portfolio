@@ -212,7 +212,7 @@
         <SectionHead number="05" title="Contact" />
         <hr>
         <div class="contact">
-            <form class="contact-form" method="POST" netlify>
+            <form class="contact-form" method="POST" netlify name="contact">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Name" required>
 
