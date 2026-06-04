@@ -55,21 +55,9 @@
             });
         }
 
-        /* Remove "inverted" flag from Experience section when under 1300px */
-        function updateInvertedFlag() {
-            const experienceSection = document.getElementById('experience');
-            if (window.innerWidth < 1300) {
-                experienceSection?.classList.remove('inverted');
-            } else {
-                experienceSection?.classList.add('inverted');
-            }
-        }
-
         window.addEventListener('scroll', updateActiveNav);
         window.addEventListener('resize', updateActiveNav);
-        window.addEventListener('resize', updateInvertedFlag);
         updateActiveNav();
-        updateInvertedFlag();
     });
 </script>
 
@@ -94,9 +82,9 @@
         <hr>
         <h2 class="cardo-italic">Full Stack Web Developer</h2>
         <svg id="arrows" width="12" height="55" viewBox="0 0 12 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path id="toparrow" d="M5.7735 55L11.547 45H-4.29153e-06L5.7735 55Z" fill="{red}"/>
-            <path id="midarrow" d="M5.7735 32L11.547 22H-4.29153e-06L5.7735 32Z" fill="{red}"/>
-            <path id="bottomarrow" d="M5.7735 10L11.547 0H-4.29153e-06L5.7735 10Z" fill="{red}"/>
+            <path id="toparrow" d="M5.7735 55L11.547 45H-4.29153e-06L5.7735 55Z" fill={red}/>
+            <path id="midarrow" d="M5.7735 32L11.547 22H-4.29153e-06L5.7735 32Z" fill={red}/>
+            <path id="bottomarrow" d="M5.7735 10L11.547 0H-4.29153e-06L5.7735 10Z" fill={red}/>
         </svg>
 
     </section> 
@@ -119,10 +107,16 @@
             <SectionHead number="02" title="Projects" inverted={true} />
             <hr>
             <div class="projects-container">
-                <Projects title="Golly's Bracket Game" 
-                description="A .NET and React project, utilizing PostgreSQL and Entity Framework Core for the 
-                database functions, and SignalR for real-time communication." 
-                link="/project1" projectImg={project1Img} />
+                <Projects
+                    title="Golly's Bracket Game"
+                    description="A .NET and React project, utilizing PostgreSQL and Entity Framework Core for the database functions, and SignalR for real-time communication."
+                    projectImg={project1Img}
+                    modalImages={[project1Img]}
+                    modalDescription=""
+                    techStack={['.NET', 'React', 'PostgreSQL', 'Entity Framework Core', 'SignalR']}
+                    liveLink=""
+                    repoLink=""
+                />
             </div>
         </section>
         <section class="experience" id="experience">
@@ -212,6 +206,7 @@
                 <h3 class="degree">Associate of Arts | Quanta-Honors College</h3>
             </div>
             <p class="school-description">Quanta-Honors <span class="red">-</span> Led varied, research-intensive projects from concept through execution, becoming skilled with seeing projects through from conception to completion.</p>
+        </div>
     </section>
     <section class="contact" id="contact">
         <SectionHead number="05" title="Contact" />
@@ -570,7 +565,7 @@
         gap: 10px;
         padding: 0 3.2cqw;
         color: var(--clr-white);
-        font-family: 'cardo-italic', serif;
+        font-family: 'cardoitalic', serif;
         font-style: italic;
         font-size: 20px;
         width: 22vw;
