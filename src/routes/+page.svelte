@@ -884,5 +884,13 @@
         .school-details h3 {
             text-align-last: left;
         }
+
+        .school-details {
+            flex-direction: column;
+        }
+
+        .degree {
+            width: 100%;
+        }
     }
 </style>
