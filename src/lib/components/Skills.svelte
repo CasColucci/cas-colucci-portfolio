@@ -37,13 +37,13 @@
         font-weight: 400;
         font-style: normal;
         font-size: 24px;
-        color: var(--clr-white);
+        color: var(--white);
     }
 
     .skill-icon {
         width: 114px;
         height: 114px;
-        color: var(--clr-red);
+        color: var(--red);
     }
 
     .skill-icon svg {

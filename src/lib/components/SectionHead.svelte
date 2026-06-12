@@ -1,11 +1,13 @@
 <script lang="ts">
-    const { number = '00', title = 'Section Title', inverted = false } : { number?: string, title?: string, inverted?: boolean } = $props();
+    const { number = '00 - Title', title = 'Section Title', meta = "small blurb", inverted = false } : { number?: string, title?: string, meta?: string, inverted?: boolean } = $props();
 </script>
 
-<div class="section-head">
-    <h2 class="cardo-regular" style="color: var(--section-head-color, {inverted ? 'var(--clr-dark-blue)' : 'var(--clr-white)'})">
-        <span>{number}</span> {title}
-    </h2>
+<div class="section-tag">
+    <span class="num">{ number }</span>
+    <span class="title">{ title }</span>
+    <span class="rule"></span>
+    <span class="meta">{ meta }</span>
+
 </div>
 
 <style>
@@ -24,27 +26,44 @@
         font-style: normal;
     }
 
-    .section-head {
+    .section-tag {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: 'geomregular', sans-serif;
-        width: 100%;
-        margin: 0 auto;
+        align-items: baseline;
+        gap: 22px;
+        margin-bottom: 72px;
+        font-family: var(--display);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--cream);
     }
-    
-    h2 {
-        align-self: flex-start;
-        font-size: 64px;
+    .section-tag .num {
+        font-family: var(--mono);
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        color: var(--red);
+        text-transform: uppercase;
+        padding-top: 12px;
     }
-
-    span {
-        color: var(--clr-red);
+    .section-tag .title {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1;
     }
-    @media (max-width: 1300px) {
-        h2 {
-            font-size: 48px;
-        }
+    .section-tag .rule {
+        flex: 1;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.18;
+        align-self: center;
+    }
+    .section-tag .meta {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 18px;
+        opacity: 0.6;
+        align-self: center;
     }
 
 </style>

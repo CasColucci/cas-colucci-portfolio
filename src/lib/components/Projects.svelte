@@ -43,7 +43,7 @@
     <div class="modal" onclick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={title}>
         <button class="close-btn" onclick={closeModal} aria-label="Close">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="var(--clr-red)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 6L6 18M6 6L18 18" stroke="var(--red)" stroke-width="2" stroke-linecap="round"/>
             </svg>
         </button>
 
@@ -105,23 +105,23 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        color: var(--clr-white);
+        color: var(--white);
         width: 345px;
 
         img {
             width: 345px;
             height: auto;
-            outline: 2px solid var(--clr-red);
+            outline: 2px solid var(--red);
         }
 
         h3 {
             font-size: 32px;
-            color: var(--clr-red);
+            color: var(--red);
             font-family: 'geomregular', sans-serif;
         }
 
         p {
-            color: var(--clr-dark-blue);
+            color: var(--dark-blue);
             font-family: 'cardoregular', serif;
             font-size: 20px;
         }
@@ -131,8 +131,8 @@
         align-self: center;
         background: none;
         border: none;
-        color: var(--clr-yellow);
-        text-shadow: 1px 1px 0 var(--clr-dark-blue);
+        color: var(--yellow);
+        text-shadow: 1px 1px 0 var(--dark-blue);
         text-decoration: underline;
         font-size: 20px;
         cursor: pointer;
@@ -142,7 +142,7 @@
     }
 
     .view-btn:hover {
-        color: var(--clr-red);
+        color: var(--red);
         text-shadow: none;
     }
 
@@ -150,7 +150,7 @@
     .modal-backdrop {
         position: fixed;
         inset: 0;
-        background-color: color-mix(in srgb, var(--clr-dark-blue) 85%, transparent);
+        background-color: color-mix(in srgb, var(--dark-blue) 85%, transparent);
         z-index: 200;
         display: flex;
         align-items: center;
@@ -159,8 +159,8 @@
     }
 
     .modal {
-        background-color: var(--clr-dark-blue);
-        border-left: 3px solid var(--clr-red);
+        background-color: var(--dark-blue);
+        border-left: 3px solid var(--red);
         max-width: 800px;
         width: 100%;
         max-height: 85vh;
@@ -188,14 +188,14 @@
     .modal-title {
         font-family: 'geomregular', sans-serif;
         font-size: 36px;
-        color: var(--clr-white);
+        color: var(--white);
         margin-bottom: 0.25rem;
     }
 
     .modal-rule {
         border: none;
         height: 2px;
-        background-color: var(--clr-red);
+        background-color: var(--red);
         margin: 0 0 1rem 0;
         width: 100%;
     }
@@ -210,7 +210,7 @@
             flex: 1 1 200px;
             max-width: 100%;
             height: 380px;
-            outline: 2px solid var(--clr-red);
+            outline: 2px solid var(--red);
             object-fit: cover;
         }
     }
@@ -226,8 +226,8 @@
         li {
             font-family: 'geomregular', sans-serif;
             font-size: 13px;
-            color: var(--clr-dark-blue);
-            background-color: var(--clr-yellow);
+            color: var(--dark-blue);
+            background-color: var(--yellow);
             padding: 1px 8px;
         }
     }
@@ -235,7 +235,7 @@
     .modal-description {
         font-family: 'cardoregular', serif;
         font-size: 18px;
-        color: var(--clr-white);
+        color: var(--white);
         line-height: 1.6;
         margin-bottom: 1.25rem;
     }
@@ -247,7 +247,7 @@
         a {
             font-family: 'geomregular', sans-serif;
             font-size: 16px;
-            color: var(--clr-yellow);
+            color: var(--yellow);
             text-decoration: underline;
             position: relative;
             padding-left: 18px;
@@ -257,12 +257,12 @@
             content: '>';
             position: absolute;
             left: 0;
-            color: var(--clr-red);
+            color: var(--red);
             font-family: 'geomregular', sans-serif;
         }
 
         a:hover {
-            color: var(--clr-red);
+            color: var(--red);
         }
     }
 </style>

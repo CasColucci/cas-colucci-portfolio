@@ -1,9 +1,10 @@
 :root {
-  --clr-dark-blue: #1c3144;
-  --clr-white: #fffcf9;
-  --clr-red: #d00000;
-  --clr-yellow: #ffba08;
-  --clr-green: #436436;
+  --dark-blue: #1c3144;
+  --white: #fffcf9;
+  --cream: #fbf7f1;
+  --red: #c03030;
+  --yellow: #ffba08;
+  --green: #436436;
 }
 
 /* Box sizing rules */
@@ -29,7 +30,7 @@ dd {
 
 /* Set Body Background Color */
 body {
-  background-color: var(--clr-dark-blue);
+  background-color: var(--dark-blue);
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */

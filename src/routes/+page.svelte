@@ -15,7 +15,7 @@
 
   import project1Img from "$lib/assets/img/bracketgame.png";
 
-  const red = "var(--clr-red)";
+  const red = "var(--red)";
 
   let navOpen = $state(false);
 
@@ -78,7 +78,6 @@
   </div>
 </nav>
 
-<div class="index">
   <section class="home" id="home">
     <div class="topbar">
       <div class="brand">
@@ -136,7 +135,7 @@
     </svg>
   </section>
   <section class="skills" id="skills">
-    <SectionHead number="01" title="Skills" />
+    <SectionHead number="01 - Skills" title="Tools of the Trade" meta="Daily Drivers" />
     <hr />
     <div class="skills-container">
       <Skills skill="Svelte" iconsrc={svelteIcon} />
@@ -151,7 +150,7 @@
   </section>
   <div class="white-bg">
     <section class="projects" id="projects">
-      <SectionHead number="02" title="Projects" inverted={true} />
+      <SectionHead number="02 - Projects" title="Projects" inverted={true} />
       <hr />
       <div class="projects-container">
         <Projects
@@ -420,7 +419,6 @@
       </p>
     </footer>
   </section>
-</div>
 
 <style>
   :root {
@@ -537,6 +535,10 @@
     overflow: hidden;
   }
 
+  section.cream { background: var(--cream); color: var(--ink); }
+  section.navy  { background: var(--navy);  color: var(--cream); }
+  section.cream-alt { background: var(--cream-2); color: var(--ink); }
+
   .home {
     height: 100vh;
     display: flex;
@@ -544,13 +546,13 @@
     justify-content: center;
     align-items: center;
     h1 {
-      color: var(--clr-white);
+      color: var(--white);
       text-align: center;
       font-size: clamp(72px, 11vw, 168px);
     }
 
     h2 {
-      color: var(--clr-white);
+      color: var(--white);
       text-align: center;
       font-size: 36px;
     }
@@ -561,11 +563,11 @@
   }
 
   .red {
-    color: var(--clr-red);
+    color: var(--red);
   }
 
   hr {
-    border: 1px solid var(--clr-red);
+    border: 1px solid var(--red);
     margin: 20px auto;
     width: 100%;
   }
@@ -628,7 +630,7 @@
   }
 
   .white-bg {
-    background-color: var(--clr-white);
+    background-color: var(--white);
   }
 
   .projects-container {
@@ -642,7 +644,7 @@
   .experience {
     position: relative;
     margin: 0 auto;
-    color: var(--clr-dark-blue);
+    color: var(--dark-blue);
     container-type: inline-size;
   }
 
@@ -650,7 +652,7 @@
     position: absolute;
     inset: 0 auto 10% 0;
     width: var(--experienceSectionLeftPanelWidth);
-    background-color: var(--clr-dark-blue);
+    background-color: var(--dark-blue);
     z-index: 1;
   }
 
@@ -673,7 +675,7 @@
     width: 100%;
     border: 0;
     height: 2px;
-    background-color: var(--clr-red);
+    background-color: var(--red);
   }
 
   .jobs {
@@ -694,7 +696,7 @@
     padding: 0 1.8cqw 0 3.2cqw;
     margin: 0;
     font-size: 32px;
-    color: var(--clr-white);
+    color: var(--white);
     font-family: "geomregular", sans-serif;
   }
 
@@ -704,7 +706,7 @@
     flex-wrap: wrap;
     gap: 10px;
     padding: 0 3.2cqw;
-    color: var(--clr-white);
+    color: var(--white);
     font-family: "cardoitalic", serif;
     font-style: italic;
     font-size: 20px;
@@ -718,7 +720,7 @@
   }
 
   .where {
-    color: var(--clr-red);
+    color: var(--red);
   }
 
   .tech {
@@ -732,7 +734,7 @@
     position: relative;
     padding-left: 20px;
     margin-left: 3.5cqw;
-    color: var(--clr-white);
+    color: var(--white);
     font-family: "cardo-italic", serif;
     font-size: 20px;
   }
@@ -741,7 +743,7 @@
     content: ">";
     position: absolute;
     left: 0;
-    color: var(--clr-red);
+    color: var(--red);
     font-weight: bold;
     font-size: 20px;
     font-family: "geomregular", sans-serif;
@@ -767,18 +769,18 @@
     content: ">";
     position: absolute;
     left: 0;
-    color: var(--clr-red);
+    color: var(--red);
     font-weight: bold;
     font-size: 20px;
     font-family: "geomregular", sans-serif;
   }
 
   .shape-fill {
-    fill: var(--clr-white);
+    fill: var(--white);
   }
 
   .school {
-    color: var(--clr-white);
+    color: var(--white);
     padding: 50px;
   }
 
@@ -799,13 +801,13 @@
     content: ">";
     position: absolute;
     left: 0;
-    color: var(--clr-red);
+    color: var(--red);
     font-family: "geomregular", sans-serif;
   }
 
   .degree {
-    color: var(--clr-dark-blue);
-    background-color: var(--clr-yellow);
+    color: var(--dark-blue);
+    background-color: var(--yellow);
     font-size: 32px;
     font-family: "geomregular", sans-serif;
     font-weight: 400;
@@ -822,13 +824,13 @@
 
   .school-description::before {
     content: ">";
-    color: var(--clr-red);
+    color: var(--red);
     font-family: "geomregular", sans-serif;
     margin-right: 10px;
   }
 
   .contact-form {
-    color: var(--clr-white);
+    color: var(--white);
   }
 
   label {
@@ -842,8 +844,8 @@
     width: 50%;
     padding: 10px;
     margin-bottom: 20px;
-    background-color: var(--clr-white);
-    color: var(--clr-dark-blue);
+    background-color: var(--white);
+    color: var(--dark-blue);
     font-family: "cardo-regular", serif;
   }
 
@@ -851,15 +853,15 @@
     width: 50%;
     padding: 10px;
     margin-bottom: 20px;
-    background-color: var(--clr-white);
-    color: var(--clr-dark-blue);
+    background-color: var(--white);
+    color: var(--dark-blue);
     resize: none;
   }
 
   .contact-form button {
     padding: 10px 20px;
-    background-color: var(--clr-red);
-    color: var(--clr-white);
+    background-color: var(--red);
+    color: var(--white);
     border: none;
     cursor: pointer;
     font-family: "geomregular", sans-serif;
@@ -870,7 +872,7 @@
   footer {
     text-align: center;
     padding: 20px 0;
-    color: var(--clr-white);
+    color: var(--white);
     font-family: "geomregular", sans-serif;
     font-size: 24px;
   }
@@ -892,8 +894,8 @@
 
   .nav-toggle {
     display: none;
-    background-color: var(--clr-dark-blue);
-    border: 1px solid var(--clr-red);
+    background-color: var(--dark-blue);
+    border: 1px solid var(--red);
     border-radius: 50%;
     cursor: pointer;
     padding: 8px;
@@ -917,13 +919,6 @@
     transform: rotate(90deg);
   }
 
-  /* Responsive adjustments */
-  @media (min-width: 1600px) {
-    section {
-      width: 70vw;
-    }
-  }
-
   @media (max-width: 1610px) {
     .nav-toggle {
       display: flex;
@@ -934,8 +929,8 @@
       top: 0;
       right: 0;
       height: 100vh;
-      background-color: var(--clr-dark-blue);
-      border-left: 3px solid var(--clr-red);
+      background-color: var(--dark-blue);
+      border-left: 3px solid var(--red);
       padding: 80px 50px 40px 40px;
       transform: translateX(100%);
       transition: transform 0.3s ease;
@@ -950,14 +945,14 @@
     nav a {
       width: 100%;
       border-bottom: 1px solid
-        color-mix(in srgb, var(--clr-red) 30%, transparent);
+        color-mix(in srgb, var(--red) 30%, transparent);
       padding: 6px 0;
       align-self: flex-start;
       font-size: 23px !important;
     }
 
     nav a:first-child {
-      border-top: 1px solid color-mix(in srgb, var(--clr-red) 30%, transparent);
+      border-top: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
     }
   }
 
@@ -980,7 +975,7 @@
   }
   @media (max-width: 960px) {
     .experience-head {
-      --section-head-color: var(--clr-dark-blue);
+      --section-head-color: var(--dark-blue);
     }
 
     .panel {
@@ -994,7 +989,7 @@
     .job {
       display: flex;
       flex-direction: row;
-      background-color: var(--clr-dark-blue);
+      background-color: var(--dark-blue);
       width: 100%;
       z-index: 1;
     }
