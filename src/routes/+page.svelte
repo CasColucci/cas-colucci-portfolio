@@ -131,30 +131,10 @@
       <span>.NET · Svelte · Postgres</span>
     </div>
   </div>
-  <svg
-    id="arrows"
-    width="12"
-    height="55"
-    viewBox="0 0 12 55"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      id="toparrow"
-      d="M5.7735 55L11.547 45H-4.29153e-06L5.7735 55Z"
-      fill={red}
-    />
-    <path
-      id="midarrow"
-      d="M5.7735 32L11.547 22H-4.29153e-06L5.7735 32Z"
-      fill={red}
-    />
-    <path
-      id="bottomarrow"
-      d="M5.7735 10L11.547 0H-4.29153e-06L5.7735 10Z"
-      fill={red}
-    />
-  </svg>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
 </section>
 <section class="skills" id="skills">
   <SectionHead
@@ -717,6 +697,42 @@
       color: var(--red);
       opacity: 1;
     }
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cream);
+      opacity: 0.5;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      .arrow {
+        width: 1px;
+        height: 28px;
+        background: currentColor;
+        position: relative;
+      }
+
+      .arrow::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -3px;
+        width: 7px;
+        height: 7px;
+        border-right: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        transform: rotate(45deg);
+        transform-origin: center;
+        top: auto;
+      }
+    }
   }
 
   .red {
@@ -733,49 +749,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  #arrows {
-    margin-top: 40px;
-  }
-
-  #toparrow {
-    opacity: 0;
-    animation:
-      fadeIn 1s ease-in-out 1s forwards,
-      translateY 1s ease-in-out 1s forwards;
-  }
-
-  #midarrow {
-    opacity: 0;
-    animation:
-      fadeIn 1s ease-in-out 1.5s forwards,
-      translateY 1s ease-in-out 1.5s forwards;
-  }
-
-  #bottomarrow {
-    opacity: 0;
-    animation:
-      fadeIn 1s ease-in-out 2s forwards,
-      translateY 1s ease-in-out 2s forwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes translateY {
-    from {
-      transform: translateY(20px);
-    }
-    to {
-      transform: translateY(0);
-    }
   }
 
   .skills-container {
