@@ -67,16 +67,38 @@
   });
 </script>
 
-<nav>
-  <div class="navinner">
-    <a href="#home" class="active" onclick={closeNav}>Home</a>
-    <a href="#skills" onclick={closeNav}>Skills</a>
-    <a href="#projects" onclick={closeNav}>Projects</a>
-    <a href="#experience" onclick={closeNav}>Experience</a>
-    <a href="#education" onclick={closeNav}>Education</a>
-    <a href="#contact" onclick={closeNav}>Contact</a>
-  </div>
-</nav>
+<div class="navstack">
+  <button class="nav-toggle" onclick={toggleNav} aria-label="Toggle navigation">
+    <svg
+      class="nav-arrow"
+      class:open={navOpen}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 18L15 12L9 6"
+        stroke="var(--red)"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+  <nav class:open={navOpen}>
+    <div class="navinner">
+      <a href="#home" class="active" onclick={closeNav}>Home</a>
+      <a href="#skills" onclick={closeNav}>Skills</a>
+      <a href="#projects" onclick={closeNav}>Projects</a>
+      <a href="#experience" onclick={closeNav}>Experience</a>
+      <a href="#education" onclick={closeNav}>Education</a>
+      <a href="#about" onclick={closeNav}>About</a>
+      <a href="#contact" onclick={closeNav}>Contact</a>
+    </div>
+  </nav>
+</div>
 
 <section class="home" id="home">
   <div class="topbar">
@@ -304,6 +326,13 @@
     </p>
   </div>
 </section>
+<section class="about" id="about">
+  <SectionHead
+    number="05 - About"
+    title="A bit about me"
+    meta="The short version"
+  />
+</section>
 <section class="contact" id="contact">
   <SectionHead number="05" title="Contact" />
   <hr />
@@ -420,8 +449,7 @@
     --experienceSectionLeftPanelWidth: 30%;
   }
 
-  /* Navigation that is sticky to right */
-  nav {
+  .navstack {
     position: fixed;
     right: 0;
     top: 0;
@@ -434,6 +462,12 @@
     justify-content: center;
     pointer-events: none;
     mix-blend-mode: difference;
+  }
+
+  /* Navigation that is sticky to right */
+  nav {
+    display: flex;
+    flex-direction: column;
 
     .navinner {
       pointer-events: auto;
@@ -458,14 +492,13 @@
     }
 
     a::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--red);
+      content: ">";
+      height: 17px;
+      color: var(--red);
       opacity: 0;
       transition: opacity 0.2s ease;
       display: inline-block;
+      line-height: 15px;
     }
   }
 
@@ -473,14 +506,87 @@
     color: var(--red);
   }
   nav a.active::before {
-    content: ">";
     opacity: 1;
+  }
+
+  .nav-toggle {
+    display: none;
+    pointer-events: auto;
+    background-color: var(--dark-blue);
+    border: 1px solid var(--red);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 8px;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 101;
+  }
+
+  .nav-arrow {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
+  }
+
+  .nav-arrow.open {
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 1000px) {
+    .navstack {
+      mix-blend-mode: normal;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      background-color: var(--dark-blue);
+      border-left: 3px solid var(--red);
+      padding: 80px 50px 40px 40px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    nav.open {
+      transform: translateX(0);
+    }
+
+    nav a {
+      width: 100%;
+      border-bottom: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
+      padding: 6px 0;
+      align-self: flex-start;
+      font-size: 23px !important;
+    }
+
+    nav a:first-child {
+      border-top: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
+    }
   }
 
   section {
     position: relative;
     padding: 140px 240px 160px 96px;
     overflow: hidden;
+  }
+
+  @media (max-width: 1000px) {
+    section {
+      padding: 140px 160px 96px;
+    }
   }
 
   section.cream {
@@ -847,69 +953,6 @@
 
   .links a {
     cursor: pointer;
-  }
-
-  .nav-toggle {
-    display: none;
-    background-color: var(--dark-blue);
-    border: 1px solid var(--red);
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 8px;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    right: 5vw;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 101;
-  }
-
-  .nav-arrow {
-    transition: transform 0.3s ease;
-    transform: rotate(0deg);
-  }
-
-  .nav-arrow.open {
-    transform: rotate(90deg);
-  }
-
-  @media (max-width: 1610px) {
-    .nav-toggle {
-      display: flex;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      background-color: var(--dark-blue);
-      border-left: 3px solid var(--red);
-      padding: 80px 50px 40px 40px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      align-items: flex-start;
-      gap: 0;
-    }
-
-    nav.open {
-      transform: translateX(0);
-    }
-
-    nav a {
-      width: 100%;
-      border-bottom: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
-      padding: 6px 0;
-      align-self: flex-start;
-      font-size: 23px !important;
-    }
-
-    nav a:first-child {
-      border-top: 1px solid color-mix(in srgb, var(--red) 30%, transparent);
-    }
   }
 
   @media (max-width: 1300px) {
