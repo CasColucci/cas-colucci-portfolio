@@ -115,7 +115,7 @@
       <span class="red">C</span>as <span class="red">C</span>olucci
     </h1>
     <h2 class="tagline | cardo-italic">
-      Full Stack Web Developer building <span class="red"
+      Full Stack Web Developer building <span class="accent"
         >durable, maintainable
       </span> software — .NET back-ends, modern front-ends, and the quiet plumbing
       in between.
@@ -128,7 +128,7 @@
     </div>
     <div class="col">
       <span class="label">Stack</span>
-      <span>.NET · React · Postgres</span>
+      <span>.NET · Svelte · Postgres</span>
     </div>
   </div>
   <svg
@@ -608,20 +608,114 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--cream);
+    .topbar {
+      position: absolute;
+      top: 36px;
+      left: 96px;
+      right: 240px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    .topbar .brand {
+      color: var(--cream);
+      opacity: 1;
+    }
+
+    .topbar .brand .dot {
+      color: var(--red);
+      margin-right: 6px;
+    }
+
+    .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .inner .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.55;
+      margin-bottom: 28px;
+
+      .marker {
+        color: var(--red);
+        opacity: 1;
+      }
+    }
+
     h1 {
-      color: var(--white);
-      text-align: center;
+      font-family: var(--display);
+      font-weight: 700;
       font-size: clamp(72px, 11vw, 168px);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      margin: 0;
+      color: var(--cream);
     }
 
     h2 {
-      color: var(--white);
-      text-align: center;
-      font-size: 36px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      margin-top: 36px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(20px, 2vw, 26px);
+      line-height: 1.35;
+      color: var(--cream);
+      opacity: 0.85;
+      max-width: 640px;
+    }
+
+    .tagline .accent {
+      color: var(--red);
+      font-style: normal;
     }
 
     hr {
       width: 32%;
+    }
+
+    .lower {
+      position: absolute;
+      left: 96px;
+      right: 240px;
+      bottom: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    .lower .col {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .lower .col .label {
+      color: var(--red);
+      opacity: 1;
     }
   }
 
