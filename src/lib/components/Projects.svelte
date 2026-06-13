@@ -89,50 +89,49 @@
           >
             <path
               d="M18 6L6 18M6 6L18 18"
-              stroke="var(--red)"
+              stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
             />
           </svg>
         </button>
+        <div class="modal-num">Project · {year}</div>
 
-        <div class="modal-inner">
-          <h2 class="modal-title">{title}</h2>
-          <hr class="modal-rule" />
+        <h2 class="modal-title">{title}</h2>
+        <div class="modal-sub">{tagline}</div>
 
-          {#if modalImages.length > 0}
-            <div class="modal-images">
-              {#each modalImages as img}
-                <img src={img} alt="{title} screenshot" />
-              {/each}
-            </div>
-          {/if}
+        {#if modalImages.length > 0}
+          <div class="modal-images">
+            {#each modalImages as img}
+              <img src={img} alt="{title} screenshot" />
+            {/each}
+          </div>
+        {/if}
 
-          {#if techStack.length > 0}
-            <ul class="modal-tech">
-              {#each techStack as tech}
-                <li>{tech}</li>
-              {/each}
-            </ul>
-          {/if}
+        {#if techStack.length > 0}
+          <ul class="modal-tech">
+            {#each techStack as tech}
+              <li class="tag">{tech}</li>
+            {/each}
+          </ul>
+        {/if}
 
-          <p class="modal-description">{modalDescription || description}</p>
+        <p class="modal-description">{modalDescription || description}</p>
 
-          {#if liveLink || repoLink}
-            <div class="modal-links">
-              {#if liveLink}
-                <a href={liveLink} target="_blank" rel="noopener noreferrer"
-                  >Live Site</a
-                >
-              {/if}
-              {#if repoLink}
-                <a href={repoLink} target="_blank" rel="noopener noreferrer"
-                  >Repository</a
-                >
-              {/if}
-            </div>
-          {/if}
-        </div>
+        {#if liveLink || repoLink}
+          <div class="modal-links">
+            {#if liveLink}
+              <a href={liveLink} target="_blank" rel="noopener noreferrer"
+                >Live Site →
+              </a>
+            {/if}
+            {#if repoLink}
+              <a href={repoLink} target="_blank" rel="noopener noreferrer"
+                >Repository →</a
+              >
+            {/if}
+          </div>
+        {/if}
       </div>
     </div>
   {/if}
@@ -266,61 +265,86 @@
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    animation: fadeIn 0.18s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .modal {
-    background-color: var(--dark-blue);
-    border-left: 3px solid var(--red);
-    max-width: 800px;
+    background: var(--cream);
+    color: var(--ink);
+    max-width: 720px;
     width: 100%;
     max-height: 85vh;
-    overflow-y: auto;
+    overflow: auto;
+    padding: 40px 44px 44px;
+    border: 1px solid var(--ink);
     position: relative;
   }
 
-  .modal-inner {
-    padding: 1.5rem 2rem 2rem;
-  }
-
   .close-btn {
-    position: sticky;
-    top: 0.75rem;
-    float: right;
+    position: absolute;
+    top: 14px;
+    right: 18px;
     background: none;
     border: none;
-    cursor: pointer;
-    padding: 4px;
-    width: auto;
-    z-index: 1;
-    margin: 0.75rem 0.75rem 0 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 22px;
+    line-height: 1;
+    transition: color 0.18s ease;
+  }
+
+  .close-btn:hover {
+    color: var(--red);
+  }
+
+  .modal-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
   }
 
   .modal-title {
     font-family: var(--display);
+    font-weight: 700;
     font-size: 36px;
-    color: var(--white);
-    margin-bottom: 0.25rem;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
   }
 
-  .modal-rule {
-    border: none;
-    height: 2px;
-    background-color: var(--red);
-    margin: 0 0 1rem 0;
-    width: 100%;
+  .modal-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1c314420;
   }
 
   .modal-images {
+    margin-top: 0;
+    border: 1px solid #1c314420;
+    padding: 32px;
+    background: var(--cream-2);
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    justify-content: center;
 
     img {
       flex: 1 1 200px;
       max-width: 100%;
       height: 380px;
-      outline: 2px solid var(--red);
       object-fit: cover;
     }
   }
@@ -331,48 +355,29 @@
     gap: 0.4rem;
     list-style: none;
     padding: 0;
-    margin: 0 0 1rem 0;
-
-    li {
-      font-family: var(--display);
-      font-size: 13px;
-      color: var(--dark-blue);
-      background-color: var(--yellow);
-      padding: 1px 8px;
-    }
+    margin: 24px 0 18px;
   }
 
   .modal-description {
     font-family: var(--serif);
-    font-size: 18px;
-    color: var(--white);
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    opacity: 0.9;
   }
 
   .modal-links {
-    display: flex;
-    gap: 1.5rem;
+    margin-top: 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
 
     a {
-      font-family: var(--display);
-      font-size: 16px;
-      color: var(--yellow);
-      text-decoration: underline;
-      position: relative;
-      padding-left: 18px;
-    }
-
-    a::before {
-      content: ">";
-      position: absolute;
-      left: 0;
       color: var(--red);
-      font-family: var(--display);
-    }
-
-    a:hover {
-      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 2px;
     }
   }
 </style>
