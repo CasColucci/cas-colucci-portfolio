@@ -136,7 +136,7 @@
     <div class="arrow"></div>
   </div>
 </section>
-<section class="skills" id="skills">
+<section class="skills navy" id="skills">
   <SectionHead
     number="01 - Skills"
     title="Tools of the Trade"
@@ -144,14 +144,49 @@
   />
   <hr />
   <div class="skills-container">
-    <Skills skill="Svelte" iconsrc={svelteIcon} />
-    <Skills skill="Angular" iconsrc={angularIcon} />
-    <Skills skill="Blazor" iconsrc={blazorIcon} />
-    <Skills skill="React" iconsrc={reactIcon} />
-    <Skills skill="MSSQL" iconsrc={mssqlIcon} />
-    <Skills skill="PostgreSQL" iconsrc={postgresIcon} />
-    <Skills skill="C#/.NET" iconsrc={dotnetIcon} />
-    <Skills skill="TypeScript" iconsrc={typescriptIcon} />
+    <Skills
+      skill="Svelte"
+      kind="Front-End Framework"
+      num="01"
+      iconsrc={svelteIcon}
+    />
+    <Skills
+      skill="Angular"
+      kind="Front-End Framework"
+      num="02"
+      iconsrc={angularIcon}
+    />
+    <Skills skill="Blazor" kind=".NET Web UI" num="03" iconsrc={blazorIcon} />
+    <Skills
+      skill="React"
+      kind="Front-End Library"
+      num="04"
+      iconsrc={reactIcon}
+    />
+    <Skills
+      skill="MSSQL"
+      kind="Relational Database"
+      num="05"
+      iconsrc={mssqlIcon}
+    />
+    <Skills
+      skill="PostgreSQL"
+      kind="Relational Database"
+      num="06"
+      iconsrc={postgresIcon}
+    />
+    <Skills
+      skill="C#/.NET"
+      kind="Back-End Platform"
+      num="07"
+      iconsrc={dotnetIcon}
+    />
+    <Skills
+      skill="TypeScript"
+      kind="Typed Javascript"
+      num="08"
+      iconsrc={typescriptIcon}
+    />
   </div>
 </section>
 <div class="white-bg">
@@ -752,11 +787,12 @@
   }
 
   .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
-    margin: 0 auto 10vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ink);
+    opacity: 0.96;
+    border: 1px solid #ffffff20;
   }
 
   .white-bg {
@@ -1040,6 +1076,9 @@
     }
   }
   @media (max-width: 960px) {
+    .skills-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .experience-head {
       --section-head-color: var(--dark-blue);
     }
@@ -1095,6 +1134,16 @@
 
     .degree {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 700px) {
+    section {
+      padding: 80px 22px 88px;
+    }
+
+    .skills-container {
+      grid-template-columns: 1fr;
     }
   }
 </style>
