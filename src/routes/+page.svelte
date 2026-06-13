@@ -283,34 +283,40 @@
     </div>
   </section>
 </div>
-<section class="education" id="education">
-  <SectionHead number="04" title="Education" />
-  <hr />
-  <div class="school">
-    <div class="school-details">
-      <h3 class="school-name">Stetson University</h3>
-      <h3 class="degree">Bachelor of Science | Computer Science</h3>
+<section class="education cream" id="education">
+  <SectionHead
+    number="04 - Education"
+    title="School & Study"
+    meta="Florida"
+    inverted={true}
+  />
+  <div class="schools">
+    <div class="school">
+      <div class="school-details">
+        <h3 class="school-name">Stetson University</h3>
+        <h3 class="degree">B.S. | Computer Science</h3>
+      </div>
+      <p class="school-description">
+        Computer Science Club <span class="red">-</span> Event Coordinator
+      </p>
+      <p class="school-description">
+        Senior Project <span class="red">-</span> Bot Activity Analysis: Analyzed
+        bot prevalence and engagement on social media by making a web scraper and
+        data analysis program. It would gather posts from suspected bot accounts,
+        and compare interactions to those by non-bot accounts, looking for trends.
+      </p>
     </div>
-    <p class="school-description">
-      Computer Science Club <span class="red">-</span> Event Coordinator
-    </p>
-    <p class="school-description">
-      Senior Project <span class="red">-</span> Bot Activity Analysis: Analyzed bot
-      prevalence and engagement on social media by making a web scraper and data
-      analysis program. It would gather posts from suspected bot accounts, and compare
-      interactions to those by non-bot accounts, looking for trends.
-    </p>
-  </div>
-  <div class="school">
-    <div class="school-details">
-      <h3 class="school-name">Daytona State College</h3>
-      <h3 class="degree">Associate of Arts | Quanta-Honors College</h3>
+    <div class="school">
+      <div class="school-details">
+        <h3 class="school-name">Daytona State College</h3>
+        <h3 class="degree">A.A. | Quanta-Honors College</h3>
+      </div>
+      <p class="school-description">
+        Quanta-Honors <span class="red">-</span> Led varied, research-intensive projects
+        from concept through execution, becoming skilled with seeing projects through
+        from conception to completion.
+      </p>
     </div>
-    <p class="school-description">
-      Quanta-Honors <span class="red">-</span> Led varied, research-intensive projects
-      from concept through execution, becoming skilled with seeing projects through
-      from conception to completion.
-    </p>
   </div>
 </section>
 <section class="about" id="about">
@@ -862,9 +868,17 @@
     background: var(--red);
   }
 
+  .schools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
   .school {
-    color: var(--white);
-    padding: 50px;
+    background: var(--cream);
+    border: 1px solid #1c314420;
+    padding: 40px 36px 36px;
+    position: relative;
   }
 
   .school-details {
@@ -874,28 +888,21 @@
   }
 
   .school-name {
-    position: relative;
     font-family: var(--display);
-    font-size: 32px;
-    padding-left: 25px;
-  }
-
-  .school-name::before {
-    content: ">";
-    position: absolute;
-    left: 0;
-    color: var(--red);
-    font-family: var(--display);
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px;
+    color: var(--ink);
   }
 
   .degree {
-    color: var(--dark-blue);
-    background-color: var(--yellow);
-    font-size: 32px;
-    font-family: var(--display);
-    font-weight: 400;
-    width: 60%;
-    text-align-last: right;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
   }
 
   .school-description {
@@ -903,13 +910,6 @@
     font-family: var(--serif);
     margin-top: 20px;
     margin-left: 25px;
-  }
-
-  .school-description::before {
-    content: ">";
-    color: var(--red);
-    font-family: var(--display);
-    margin-right: 10px;
   }
 
   .contact-form {
