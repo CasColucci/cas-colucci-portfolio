@@ -17,6 +17,36 @@
 
   const red = "var(--red)";
 
+  const EXPERIENCE = [
+    {
+      company: "System Innovators",
+      place: "Jacksonville, FL",
+      dates: "Nov 2024 — May 2026",
+      duration: "1 yr 6 mo",
+      role: "Software Engineer",
+      stack: ["C#", ".NET Framework", "Blazor", "SQL Server"],
+      bullets: [
+        "Maintained and enhanced the AMP (Admin Management Portal) within the iNovah enterprise revenue management system, supporting cashiering and payments operations for government and commercial clients across the United States and Canada.",
+        "Diagnosed and resolved long-standing production bugs in a legacy .NET Framework 4.8 codebase spanning 130+ interconnected projects.",
+        "Improved team documentation and authored transition materials supporting the team's migration from TFVC to Git version control.",
+      ],
+    },
+    {
+      company: "BAM Technologies",
+      place: "Arlington, VA",
+      dates: "Nov 2021 — Sep 2024",
+      duration: "2 yr 10 mo",
+      role: "Software Engineer",
+      stack: ["C#", ".NET 8", "Angular", "Entity Framework", "SQL Server"],
+      bullets: [
+        "Built and maintained full-stack features for the MyCAA Scholarship platform, a nationally-deployed government application serving military spouses, using .NET Core 8 and Angular.",
+        "Designed and optimized SQL Server queries and schema to support platform performance and reliability.",
+        "Managed CI/CD deployments via Octopus Deploy and TeamCity, maintaining stable production releases across environments.",
+        "Collaborated in a cross-functional Scrum team, conducting code reviews and implementing comprehensive testing practices.",
+      ],
+    },
+  ];
+
   let navOpen = $state(false);
 
   function toggleNav() {
@@ -136,7 +166,7 @@
     <div class="arrow"></div>
   </div>
 </section>
-<section class="skills navy" id="skills">
+<section class="skills dark-blue" id="skills">
   <SectionHead
     number="01 - Skills"
     title="Tools of the Trade"
@@ -218,108 +248,40 @@
       <Projects isEmpty={true} />
     </div>
   </section>
-  <section class="experience" id="experience">
-    <div class="panel" aria-hidden="true"></div>
-    <div class="content">
-      <div class="head experience-head">
-        <SectionHead
-          number="03 - Experience"
-          title="Where I've Shipped"
-          meta="2021-present"
-        />
-      </div>
-      <hr class="rule" />
-      <div class="jobs">
-        <div class="job">
-          <div class="job-left-section">
-            <h3 class="role">Software Engineer</h3>
-            <div class="job-info">
-              <span class="dates">11/24 <span class="red">-</span> 05/26</span>
-              <div class="company-info">
-                <span class="company">System Innovators</span>
-                <span class="where">Jacksonville, FL</span>
-              </div>
-            </div>
+  <section class="jobs dark-blue" id="experience">
+    <SectionHead
+      number="03 - Experience"
+      title="Where I've Shipped"
+      meta="2021-present"
+    />
+    <div class="jobs">
+      {#each EXPERIENCE as x}
+        <div class="xp-row">
+          <div class="date">
+            {x.dates}
+            <span class="dur">{x.duration}</span>
           </div>
-          <ul class="tech job-right-section">
-            <li>C#</li>
-            <li>.NET Framework</li>
-            <li>Blazor</li>
-            <li>Docker</li>
-            <li>SQL</li>
-          </ul>
-        </div>
-        <div class="detail">
-          <ul class="points">
-            <li>
-              Maintained and enhanced the AMP (Admin Management Portal) within
-              the iNovah enterprise revenue management system, supporting
-              cashiering and payments operations for government and commercial
-              clients across the United States and Canada
-            </li>
-            <li>
-              Diagnosed and resolved long-standing production bugs in a legacy
-              .NET Framework 4.8 codebase spanning 130+ interconnected projects
-            </li>
-            <li>
-              Improved team documentation and authored transition materials
-              supporting the team's migration from TFVC to Git version control
-            </li>
-          </ul>
-        </div>
-        <div class="job">
-          <div class="job-left-section">
-            <h3 class="role">Software Engineer</h3>
-            <div class="job-info">
-              <span class="dates">11/21 <span class="red">-</span> 09/24</span>
-              <div class="company-info">
-                <span class="company">BAM Technologies</span>
-                <span class="where">Arlington, VA</span>
-              </div>
+          <div class="role-block">
+            <div class="head">
+              <h3>{x.company}</h3>
+              <div class="place">{x.place}</div>
             </div>
+            <div class="role-title">{x.role}</div>
+            <div class="stack">
+              {#each x.stack as chip}
+                <span class="chip">{chip}</span>
+              {/each}
+            </div>
+            <ul>
+              {#each x.bullets as bullet}
+                <li>{bullet}</li>
+              {/each}
+            </ul>
           </div>
-          <ul class="tech job-right-section">
-            <li>C#</li>
-            <li>.NET 8</li>
-            <li>Angular</li>
-            <li>Entity Framework</li>
-            <li>SQL</li>
-          </ul>
         </div>
-        <div class="detail">
-          <ul class="points">
-            <li>
-              Built and maintained full-stack features for the MyCAA Scholarship
-              platform, a nationally-deployed government application serving
-              military spouses nationwide, using .NET Core 8 and Angular
-            </li>
-            <li>
-              Designed and optimized SQL Server database queries and schema to
-              support platform performance and reliability
-            </li>
-            <li>
-              Managed CI/CD deployments via Octopus Deploy and TeamCity,
-              maintaining stable production releases across environments
-            </li>
-            <li>
-              Collaborated in a cross-functional Scrum team, conducting code
-              reviews and implementing comprehensive testing practices
-            </li>
-          </ul>
-        </div>
-      </div>
+      {/each}
     </div>
   </section>
-</div>
-<div class="triangle-divider">
-  <svg
-    data-name="Layer 1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1200 120"
-    preserveAspectRatio="none"
-  >
-    <path d="M1200 0L0 0 598.97 114.72 1200 0z" class="shape-fill"></path>
-  </svg>
 </div>
 <section class="education" id="education">
   <SectionHead number="04" title="Education" />
@@ -470,10 +432,6 @@
 </section>
 
 <style>
-  :root {
-    --experienceSectionLeftPanelWidth: 30%;
-  }
-
   .navstack {
     position: fixed;
     right: 0;
@@ -618,8 +576,8 @@
     background: var(--cream);
     color: var(--ink);
   }
-  section.navy {
-    background: var(--navy);
+  section.dark-blue {
+    background: var(--dark-blue);
     color: var(--cream);
   }
   section.cream-alt {
@@ -784,18 +742,6 @@
     color: var(--red);
   }
 
-  hr {
-    border: 1px solid var(--red);
-    margin: 20px auto;
-    width: 100%;
-  }
-
-  .vertical-center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   .skills-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -814,142 +760,106 @@
     gap: 36px;
   }
 
-  .experience {
-    position: relative;
-    margin: 0 auto;
-    color: var(--dark-blue);
-    container-type: inline-size;
-  }
-
-  .panel {
-    position: absolute;
-    inset: 0 auto 10% 0;
-    width: var(--experienceSectionLeftPanelWidth);
-    background-color: var(--dark-blue);
-    z-index: 1;
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
+  .jobs {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
-    padding-bottom: 10vh;
   }
 
-  .head {
-    max-width: var(--experienceSectionLeftPanelWidth);
-    margin-left: 1%;
-    width: 22vw;
-  }
-
-  .rule {
-    width: 100%;
-    border: 0;
-    height: 2px;
-    background-color: var(--red);
-  }
-
-  .jobs {
-    flex: 1;
+  .xp-row {
     display: grid;
-    grid-template-columns: auto auto;
-    align-items: start;
-    align-content: start;
-    row-gap: 3.6cqw;
-    padding-top: 3cqw;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    padding: 44px 0;
+    border-top: 1px solid #ffffff18;
   }
-
-  .job {
-    padding: 1.8cqw 0;
+  .xp-row:last-child {
+    border-bottom: 1px solid #ffffff18;
   }
-
-  .role {
-    padding: 0 1.8cqw 0 3.2cqw;
-    margin: 0;
-    font-size: 32px;
-    color: var(--white);
-    font-family: var(--display);
+  .xp-row .date {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--cream);
   }
-
-  .job-info {
+  .xp-row .date .dur {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #ffffff60;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .xp-row .role-block .head {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 0 3.2cqw;
-    color: var(--white);
-    font-family: var(--serif-italic);
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 6px;
+  }
+  .xp-row .role-block h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--cream);
+  }
+  .xp-row .role-block .place {
+    font-family: var(--serif);
     font-style: italic;
-    font-size: 20px;
-    width: 22vw;
+    font-size: 16px;
+    color: #ffffff70;
+    text-align: right;
+    white-space: nowrap;
   }
-
-  .company-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .where {
+  .xp-row .role-block .role-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
     color: var(--red);
+    margin-bottom: 18px;
   }
-
-  .tech {
+  .xp-row .role-block .stack {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .xp-row .role-block .stack .chip {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-color: #ffffff25;
+    color: #ffffff85;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .xp-row ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 760px;
   }
-
-  .tech li {
+  .xp-row li {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
     position: relative;
-    padding-left: 20px;
-    margin-left: 3.5cqw;
-    color: var(--white);
-    font-family: var(--serif-italic);
-    font-size: 20px;
+    padding-left: 22px;
+    color: var(--cream);
+    opacity: 0.92;
   }
-
-  .tech li::before {
-    content: ">";
+  .xp-row li::before {
+    content: "";
     position: absolute;
     left: 0;
-    color: var(--red);
-    font-weight: bold;
-    font-size: 20px;
-    font-family: var(--display);
-  }
-
-  .detail {
-    padding: 0 3.2cqw;
-  }
-
-  .points {
-    margin: 0;
-    padding: 1.8cqw 0;
-    list-style: none;
-  }
-
-  .points li {
-    position: relative;
-    padding-top: 1.8cqw;
-    padding-left: 20px;
-    font-size: 20px;
-  }
-  .points li::before {
-    content: ">";
-    position: absolute;
-    left: 0;
-    color: var(--red);
-    font-weight: bold;
-    font-size: 20px;
-    font-family: var(--display);
-  }
-
-  .shape-fill {
-    fill: var(--cream-2);
+    top: 12px;
+    width: 8px;
+    height: 1px;
+    background: var(--red);
   }
 
   .school {
