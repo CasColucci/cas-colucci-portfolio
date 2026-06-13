@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #ffffff20;
 
     p {
       font-family: var(--display);

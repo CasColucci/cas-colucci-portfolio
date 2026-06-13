@@ -789,7 +789,6 @@
   .skills-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
     background: var(--ink);
     opacity: 0.96;
     border: 1px solid #ffffff20;
