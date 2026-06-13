@@ -12,14 +12,30 @@
   } = $props();
 </script>
 
-<div class="section-tag">
-  <span class="num">{number}</span>
-  <span class="title">{title}</span>
-  <span class="rule"></span>
-  <span class="meta">{meta}</span>
-</div>
+{#if !inverted}
+  <div class="section-tag blue">
+    <span class="num">{number}</span>
+    <span class="title">{title}</span>
+    <span class="rule"></span>
+    <span class="meta">{meta}</span>
+  </div>
+{:else}
+  <div class="section-tag cream">
+    <span class="num">{number}</span>
+    <span class="title">{title}</span>
+    <span class="rule"></span>
+    <span class="meta">{meta}</span>
+  </div>
+{/if}
 
 <style>
+  .cream {
+    color: var(--dark-blue);
+  }
+
+  .blue {
+    color: var(--cream);
+  }
   .section-tag {
     display: flex;
     align-items: baseline;
@@ -28,7 +44,6 @@
     font-family: var(--display);
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: var(--cream);
   }
   .section-tag .num {
     font-family: var(--mono);

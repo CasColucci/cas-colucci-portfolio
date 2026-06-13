@@ -189,13 +189,18 @@
     />
   </div>
 </section>
-<div class="white-bg">
+<div class="cream-bg">
   <section class="projects" id="projects">
-    <SectionHead number="02 - Projects" title="Projects" inverted={true} />
-    <hr />
+    <SectionHead
+      number="02 - Projects"
+      title="Selected Work"
+      meta="A small, growing list"
+      inverted={true}
+    />
     <div class="projects-container">
       <Projects
         title="Golly's Bracket Game"
+        tagline="Real-time, March-Madness-style bracket lobbies built with .NET, React and SignalR."
         description="A .NET and React project, utilizing PostgreSQL and Entity Framework Core for the database functions, and SignalR for real-time communication."
         projectImg={project1Img}
         modalImages={[project1Img]}
@@ -210,6 +215,7 @@
         liveLink=""
         repoLink="https://github.com/CasColucci/BracketGame"
       />
+      <Projects isEmpty={true} />
     </div>
   </section>
   <section class="experience" id="experience">
@@ -794,16 +800,14 @@
     border: 1px solid #ffffff20;
   }
 
-  .white-bg {
-    background-color: var(--white);
+  .cream-bg {
+    background-color: var(--cream);
   }
 
   .projects-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin: 0 auto 10vh;
-    padding: 0 5vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
   }
 
   .experience {
