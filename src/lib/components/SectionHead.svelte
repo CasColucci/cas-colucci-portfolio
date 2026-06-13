@@ -74,4 +74,28 @@
     opacity: 0.6;
     align-self: center;
   }
+
+  @media (max-width: 640px) {
+    /* section header — stack instead of side-by-side */
+    .section-tag {
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 44px;
+    }
+    .section-tag .num {
+      padding-top: 0;
+      font-size: 11px;
+      flex-basis: 100%;
+    }
+    .section-tag .title {
+      font-size: 38px;
+      line-height: 1;
+    }
+    .section-tag .rule {
+      display: none;
+    }
+    .section-tag .meta {
+      display: none;
+    }
+  }
 </style>

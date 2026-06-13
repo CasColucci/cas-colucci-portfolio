@@ -380,4 +380,38 @@
       padding-bottom: 2px;
     }
   }
+
+  @media (max-width: 960px) {
+    .proj-card.empty {
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* project card */
+    .proj-thumb {
+      height: 180px;
+    }
+    .proj-body {
+      padding: 22px 22px 24px;
+    }
+    .proj-body h3 {
+      font-size: 22px;
+    }
+    .proj-body p {
+      font-size: 15px;
+    }
+    .modal-backdrop {
+      padding: 16px;
+    }
+    .modal {
+      padding: 28px 22px 28px;
+    }
+    .modal h2 {
+      font-size: 26px;
+    }
+    .modal .modal-thumb {
+      padding: 18px;
+    }
+  }
 </style>
