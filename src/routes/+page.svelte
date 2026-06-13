@@ -222,7 +222,11 @@
     <div class="panel" aria-hidden="true"></div>
     <div class="content">
       <div class="head experience-head">
-        <SectionHead number="03" title="Experience" />
+        <SectionHead
+          number="03 - Experience"
+          title="Where I've Shipped"
+          meta="2021-present"
+        />
       </div>
       <hr class="rule" />
       <div class="jobs">
@@ -801,7 +805,7 @@
   }
 
   .cream-bg {
-    background-color: var(--cream);
+    background-color: var(--cream-2);
   }
 
   .projects-container {
@@ -945,7 +949,7 @@
   }
 
   .shape-fill {
-    fill: var(--white);
+    fill: var(--cream-2);
   }
 
   .school {
