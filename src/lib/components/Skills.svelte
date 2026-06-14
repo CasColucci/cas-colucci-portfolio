@@ -84,4 +84,37 @@
     font-size: 14px;
     color: var(--muted);
   }
+  @media (max-width: 640px) {
+    .skill-card {
+      min-height: 0;
+      padding: 22px 22px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .skill-card .num {
+      margin-bottom: 0;
+      order: 2;
+      flex-shrink: 0;
+    }
+    .skill-card > div:last-child {
+      order: 1;
+      text-align: left;
+    }
+    .skill-card .name {
+      margin-top: 0;
+      font-size: 20px;
+    }
+    .skill-card .kind {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 388px) {
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+    }
+  }
 </style>

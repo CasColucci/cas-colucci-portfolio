@@ -97,26 +97,26 @@
   });
 </script>
 
+<button class="nav-toggle" onclick={toggleNav} aria-label="Toggle navigation">
+  <svg
+    class="nav-arrow"
+    class:open={navOpen}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9 18L15 12L9 6"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</button>
 <div class="navstack">
-  <button class="nav-toggle" onclick={toggleNav} aria-label="Toggle navigation">
-    <svg
-      class="nav-arrow"
-      class:open={navOpen}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M9 18L15 12L9 6"
-        stroke="var(--red)"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </button>
   <nav class:open={navOpen}>
     <div class="navinner">
       <a href="#home" class="active" onclick={closeNav}>Home</a>
@@ -383,21 +383,26 @@
   class="cream"
   id="contact"
 >
-  <SectionHead number="05" title="Contact" />
+  <SectionHead
+    number="05 - Contact"
+    title="Let's Talk!"
+    meta="Normally replies within a day"
+    inverted={true}
+  />
 
   <div class="contact-wrap">
     <div class="contact-blurb">
       <h3>
         Got something<br />
-        worth <span class="ital">building?</span>
+        that needs <span class="ital">building?</span>
       </h3>
       <p>
-        I take on freelance full-stack work — front-end systems, .NET back-ends,
-        database design, and the unglamorous middle bits that keep apps running
-        quietly.
+        I take on freelance full-stack work. Front-end designs, back-end
+        systems, database design, and the unglamorous middle bits that keep apps
+        running quietly.
       </p>
       <div class="info">
-        <a href="mailto:hello@cascolucci.dev">
+        <a href="mailto:cas@cascolucci.com">
           <span class="label">Email</span>
           <svg
             viewBox="0 0 24 24"
@@ -421,7 +426,7 @@
               stroke-width="2"
               stroke-linecap="round"
             />
-          </svg> <span>hello@cascolucci.dev</span>
+          </svg> <span>cas@cascolucci.com</span>
         </a>
         <a href="http://github.com/cascolucci">
           <span class="label">GitHub</span>
@@ -549,7 +554,7 @@
           />
         </svg></a
       >
-      <a href="mailto:hello@cascolucci.dev" aria-label="Email"
+      <a href="mailto:cas@cascolucci.com" aria-label="Email"
         ><svg
           viewBox="0 0 24 24"
           fill="none"
@@ -646,8 +651,10 @@
   .nav-toggle {
     display: none;
     pointer-events: auto;
-    background-color: var(--dark-blue);
+    background-color: transparent;
     border: 1px solid var(--red);
+    color: var(--red);
+    mix-blend-mode: difference;
     border-radius: 50%;
     cursor: pointer;
     padding: 8px;
@@ -1426,14 +1433,6 @@
   }
 
   @media (max-width: 838px) {
-    .school-details h3 {
-      text-align-last: left;
-    }
-
-    .school-details {
-      flex-direction: column;
-    }
-
     .degree {
       width: 100%;
     }
@@ -1485,6 +1484,11 @@
       gap: 28px;
     }
 
+    .schools {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
     /* experience — stack the date above the role block */
     .xp-row {
       grid-template-columns: 1fr;
@@ -1504,7 +1508,7 @@
     }
 
     /* education — 1 column */
-    .edu-grid {
+    .jobs {
       grid-template-columns: 1fr;
       gap: 24px;
     }
@@ -1579,54 +1583,8 @@
     }
 
     /* skills — single column on phone, name+kind left, number right */
-    .skills-grid {
+    .skills-container {
       grid-template-columns: 1fr;
-    }
-    .skill-card {
-      min-height: 0;
-      padding: 22px 22px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .skill-card .num {
-      margin-bottom: 0;
-      order: 2;
-      flex-shrink: 0;
-    }
-    .skill-card > div:last-child {
-      order: 1;
-      text-align: left;
-    }
-    .skill-card .name {
-      margin-top: 0;
-      font-size: 20px;
-    }
-    .skill-card .kind {
-      font-size: 13px;
-    }
-
-    /* project card */
-    .proj-thumb {
-      height: 180px;
-    }
-    .proj-thumb .pixel {
-      width: 82%;
-      padding: 12px 14px;
-      font-size: 12px;
-    }
-    .proj-thumb .pixel .title {
-      font-size: 14px;
-    }
-    .proj-body {
-      padding: 22px 22px 24px;
-    }
-    .proj-body h3 {
-      font-size: 22px;
-    }
-    .proj-body p {
-      font-size: 15px;
     }
 
     /* experience */
@@ -1645,10 +1603,10 @@
     }
 
     /* education */
-    .edu-card {
+    .school {
       padding: 28px 24px 24px;
     }
-    .edu-card h3 {
+    .school h3 {
       font-size: 22px;
     }
 
