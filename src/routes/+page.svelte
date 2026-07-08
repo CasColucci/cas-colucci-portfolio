@@ -350,7 +350,7 @@
           href="http://zegollygosh.com"
         >
           writing</a
-        >, creative projects. It's the same instinct, just differentmaterials.
+        >, creative projects. It's the same instinct, just different materials.
       </p>
     </div>
 
