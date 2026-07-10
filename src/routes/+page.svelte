@@ -139,7 +139,7 @@
   </div>
   <div class="inner">
     <div class="eyebrow">
-      <span class="marker">●</span> &nbsp;Available for freelance — June 2026
+      <span class="marker">●</span> &nbsp;Available for freelance — July 2026
     </div>
     <h1 class="geom-regular">
       <span class="red">C</span>as <span class="red">C</span>olucci
